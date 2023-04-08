@@ -1,9 +1,9 @@
 import random
 
 
-def is_valid(n):
+def is_valid(n, z):
     if n.isdigit():
-        if int(n) in range(1, 101):
+        if int(n) in range(1, z + 1):
             return True
         else:
             return False
@@ -13,19 +13,23 @@ def is_valid(n):
 
 again = 'да'
 
-print('Добро пожаловать в числовую угадайку')
+print('Добро пожаловать в числовую угадайку!')
+print('Мы загадаем число, а вы должны угадать его!')
+print('Для начала, укажите правую границу диапазона загадываемого числа')
 
 while again == 'да':
-    a = random.randint(1, 100)
-    print('Введите целое число от 1 до 100:')
+    z = input('Угадывать число от 1 до : ')
+    z = int(z)
+    a = random.randint(1, z)
+    print('Введите целое число от 1 до', z, ':')
 
     n = input()
-    while is_valid(n) is False:
-        print('Неверно. Введите целое число от 1 до 100')
+    while is_valid(n, z) is False:
+        print('Неверно. Введите целое число от 1 до', z, ':')
         n = input()
 
     n = int(n)
-    x = random.randint(1, 100)
+    x = random.randint(1, z)
     count = 1
     while n != x:
         if n < x:
