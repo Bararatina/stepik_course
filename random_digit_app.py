@@ -48,3 +48,4 @@ while again == 'да':
         again = p.lower()
 else:
     print('Спасибо, что играли с нами! До свидания!')
+
