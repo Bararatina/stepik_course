@@ -17,4 +17,3 @@ def is_valid(n):
 n = input('Put the number: ')
 
 print(is_valid(n))
-
