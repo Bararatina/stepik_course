@@ -1,8 +1,5 @@
 import random
 
-a = random.randint(1, 100)
-print('Добро пожаловать в числовую угадайку')
-
 
 def is_valid(n):
     if n.isdigit():
@@ -14,9 +11,36 @@ def is_valid(n):
         return False
 
 
-n = input('Put the number: ')
-while is_valid(n) is False:
-    print('Введите целое число от 1 до 100')
-    n = input('Put the number: ')
-while is_valid(n) is True:
+again = 'да'
+
+print('Добро пожаловать в числовую угадайку')
+
+while again == 'да':
+    a = random.randint(1, 100)
+    print('Введите целое число от 1 до 100:')
+
+    n = input()
+    while is_valid(n) is False:
+        print('Неверно. Введите целое число от 1 до 100')
+        n = input()
+
     n = int(n)
+    x = random.randint(1, 100)
+    count = 1
+    while n != x:
+        if n < x:
+            print('Ваше число меньше загаданного, попробуйте еще раз:')
+            count += 1
+            n = int(input())
+        elif n > x:
+            print('Ваше число больше загаданного, попробуйте еще раз:')
+            count += 1
+            n = int(input())
+    else:
+        print('Вы угадали, поздравляем!')
+        print('Количество попыток: ', count)
+        print('Начать заново?')
+        p = input('Введите да/нет:')
+        again = p.lower()
+else:
+    print('Спасибо, что играли с нами! До свидания!')
