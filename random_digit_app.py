@@ -15,5 +15,8 @@ def is_valid(n):
 
 
 n = input('Put the number: ')
-
-print(is_valid(n))
+while is_valid(n) is False:
+    print('Введите целое число от 1 до 100')
+    n = input('Put the number: ')
+while is_valid(n) is True:
+    n = int(n)
